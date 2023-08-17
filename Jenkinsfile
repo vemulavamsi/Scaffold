@@ -23,7 +23,7 @@ pipeline {
        }
         stage('Push Docker image to ECR') {
             steps {
-            withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
+            
             sh "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/g8i9m6o6"
 			   
             sh "docker build -t learning111 ."
@@ -31,9 +31,9 @@ pipeline {
             sh "docker tag learning111:latest public.ecr.aws/g8i9m6o6/learning111:latest"
 
             sh "docker push public.ecr.aws/g8i9m6o6/learning111:latest"
+        
         }
     }
-}
 
 //         stage('Pull Docker image from ECR') {
 //             steps {
