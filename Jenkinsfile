@@ -17,7 +17,7 @@ pipeline {
         steps {
                script{
                     // git branch: buildProps.BRANCH_NAME, credentialsId: buildProps.CRED, url: buildProps.git_url
-                    sh "git branch: 'main', credentialsId: 'GIT', url: 'https://github.com/vemulavamsi/Scaffold.git'"
+                    git branch: 'main', credentialsId: 'GIT', url: 'https://github.com/vemulavamsi/Scaffold.git'
                 }
             }
        }
