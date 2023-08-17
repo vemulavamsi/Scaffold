@@ -13,15 +13,14 @@ pipeline {
                 }
               }
           }
-       stage ('cloneing')
-       {
-
-            steps {
+       stage ('cloneing'){
+        steps {
                script{
-                // git branch: buildProps.BRANCH_NAME, credentialsId: buildProps.CRED, url: buildProps.git_url
-                sh "git branch: 'main', credentialsId: 'GIT', url: 'https://github.com/vemulavamsi/Scaffold.git'"
+                    // git branch: buildProps.BRANCH_NAME, credentialsId: buildProps.CRED, url: buildProps.git_url
+                    sh "git branch: 'main', credentialsId: 'GIT', url: 'https://github.com/vemulavamsi/Scaffold.git'"
+                }
             }
-        }
+       }
 //         stage('Push Docker image to ECR') {
 //             steps {
 //             withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
