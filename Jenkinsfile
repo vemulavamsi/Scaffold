@@ -13,6 +13,7 @@ pipeline {
                 }
               }
           }
+          /*
        stage ('cloneing'){
         steps {
                script{
@@ -21,6 +22,7 @@ pipeline {
                 }
             }
        }
+       
         stage('Push Docker image to ECR') {
             steps {
                 script{
@@ -34,7 +36,7 @@ pipeline {
                 }
         }
     }
-
+*/
 //         stage('Pull Docker image from ECR') {
 //             steps {
 //             withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
