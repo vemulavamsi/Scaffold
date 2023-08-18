@@ -1,7 +1,12 @@
 pipeline {
      agent any
   
-    stages{
+    stages {
+        stage('Build') {    
+            steps{
+                echo "Building the code"
+                }
+            }
 
           /*
        stage ('cloneing'){
