@@ -2,17 +2,7 @@ pipeline {
      agent any
   
     stages{
-       stage('Check Env Variable') {
-            steps {
-                script {
-                        buildProps = readProperties file: 'build.properties'
-                echo "${buildProps.BRANCH_NAME}"
-                echo "${buildProps.CRED}"
-                echo "${buildProps.git_url}"
-                echo "${buildProps.AWS_ACCOUNT_ID}"
-                }
-              }
-          }
+
           /*
        stage ('cloneing'){
         steps {
