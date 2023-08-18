@@ -31,7 +31,7 @@ pipeline {
                         // //sh "docker rm -f learning111"
                         // sh "docker run -itd -p 3000:3000 --name learning111 ${buildProps.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/node-repo:${env.BUILD_NUMBER}"
 
-                    sh "docker pull 070067762024.dkr.ecr.us-east-1.amazonaws.com/learning111:latest"
+                    sh "docker pull 070067762024.dkr.ecr.us-east-1.amazonaws.com/public.ecr.aws/g8i9m6o6/learning111:latest"
             }
         }
     }
