@@ -23,7 +23,7 @@ pipeline {
                 }
         }
     }
-*/
+
 //         stage('Pull Docker image from ECR') {
 //             steps {
 //             withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
