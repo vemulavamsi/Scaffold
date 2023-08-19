@@ -32,10 +32,10 @@ pipeline {
                     // Pulling latest version of docker image
                     sh "docker pull public.ecr.aws/g8i9m6o6/learning111:latest"
                     
-                    sh 'docker ps -f name=vamsi-practice -q | xargs --no-run-if-empty docker container stop'
+                    sh 'docker ps -f name=vamsi-Adi-practice -q | xargs --no-run-if-empty docker container stop'
                     sh 'docker container ls -a -fname=vamsi-practice -q | xargs -r docker container rm'
                     // creating container and port mapping
-                    sh "docker run -itd --name vamsi-Adi-practice -p ${BUILD_NUMBER}:3000 public.ecr.aws/g8i9m6o6/learning111:latest"     
+                    sh "docker run -itd --name vamsi-Adi-practice -p 3000:3000 public.ecr.aws/g8i9m6o6/learning111:latest"     
             }
         }
     }
