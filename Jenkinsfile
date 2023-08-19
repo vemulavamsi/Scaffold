@@ -32,6 +32,7 @@ pipeline {
                     sh "docker pull public.ecr.aws/g8i9m6o6/learning111:latest"
                     // creating container and port mapping
                     sh "docker run -d -p 3001:3001 public.ecr.aws/g8i9m6o6/learning111:latest"
+                    sh"docker rm public.ecr.aws/g8i9m6o6/learning111"
                     
             }
         }
