@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {    
             steps{
                 echo "Building the code"
-                sh "git clone https://github.com/vemulavamsi/Scaffold.git"
+                //sh "git clone https://github.com/vemulavamsi/Scaffold.git"
                 }
             }
         stage('Push Docker image to ECR') {
