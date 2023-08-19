@@ -31,9 +31,8 @@ pipeline {
                     // Pulling latest version of docker image
                     sh "docker pull public.ecr.aws/g8i9m6o6/learning111:latest"
                     // creating container and port mapping
-                    sh "docker run -d -p 3002:3000 public.ecr.aws/g8i9m6o6/learning111:latest"
-                    sh"docker rm public.ecr.aws/g8i9m6o6/learning111"
-                    
+                    sh "docker run -d -p 3000:3000 public.ecr.aws/g8i9m6o6/learning111:latest"
+                                        
             }
         }
     }

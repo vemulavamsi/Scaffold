@@ -15,7 +15,7 @@
     "nodejs",
     "rest"
   ],
-  "author": "ritesh.patel",
+  "author": "vamsi-vemula",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.5",
