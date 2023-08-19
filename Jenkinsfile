@@ -1,5 +1,4 @@
-
-				pipeline {
+pipeline {
      agent any
   
     stages {
@@ -8,9 +7,6 @@
                 echo "Building the code"
                 }
             }
-
-
-       
         stage('Push Docker image to ECR') {
             steps {
                 script{
@@ -24,7 +20,6 @@
                 }
         }
     }
-
         stage('Pull Docker image from ECR') {
             steps {
                 script{
@@ -32,7 +27,7 @@
                         //sh "docker rm -f learning111"
                         // sh "docker run -itd -p 3000:3000 --name learning111 ${buildProps.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/node-repo:${env.BUILD_NUMBER}"
                    // Removing existing image
-                    sh "docker rmi -f learning111"
+                   // sh "docker rmi -f learning111"
                     // Pulling latest version of docker image
                     sh "docker pull public.ecr.aws/g8i9m6o6/learning111:latest"
                     // creating container and port mapping
