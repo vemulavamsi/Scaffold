@@ -35,7 +35,7 @@ pipeline {
                     sh 'docker ps -f name=vamsi-Adi-practice -q | xargs --no-run-if-empty docker container stop'
                     sh 'docker container ls -a -fname=vamsi-practice -q | xargs -r docker container rm'
                     // creating container and port mapping
-                    sh "docker run -itd --name vamsi-Adi-practice -p 3000:3000 public.ecr.aws/g8i9m6o6/learning111:latest"     
+                    sh "docker run -d --name vamsi-Adi-practice -p 3000:3000 public.ecr.aws/g8i9m6o6/learning111:latest"     
             }
         }
     }
