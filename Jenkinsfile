@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    environment {
-        // Define Node.js installation to use
-        NODEJS_HOME = sonar: 'practice', type: 'node'
-        }
     stages {
         stage('Build') {    
             steps{
