@@ -55,5 +55,19 @@ pipeline {
 		// 	}
 		// }
 
+    //Nexus
+    stage('nexus'){
+        steps{
+            script{
+                nexusArtifactUploader credentialsId: 'Nexus', 
+                groupId: 'express-scaffold', 
+                nexusUrl: '34.204.82.216:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'Practice', 
+                version: '1.0.0'
+            }
+        }
+    }
 	}
 }
