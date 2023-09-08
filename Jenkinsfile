@@ -1,6 +1,9 @@
 pipeline {
-     agent any
-  
+    agent any
+    environment {
+        // Define Node.js installation to use
+        NODEJS_HOME = tool name: 'practice', type: 'Tool'
+    }
     stages {
         stage('Build') {    
             steps{
@@ -50,7 +53,8 @@ pipeline {
                 //Sonar envirment setup
                 script{
                     withSonarQubeEnv(credentialsId: 'Sonar') {
-                        sh 'npm run sonar-scanner'
+                        //sh 'npm run sonar-scanner'
+                        sh "${NODEJS_HOME}/bin/sonar-scanner"
                     }
                     
                 }
