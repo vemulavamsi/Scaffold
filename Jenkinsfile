@@ -47,7 +47,7 @@ pipeline {
 		stage('SonarQube analysis') {
             steps {
                 script {
-			        def scannerHome = tool 'practice';
+			        def scannerHome = tool 'sonarqube';
 			        withSonarQubeEnv(credentialsId: 'Sonar') { // If you have configured more than one global server connection, you can specify its name
 				        sh "${scannerHome}/bin/sonar-scanner"
                     }
