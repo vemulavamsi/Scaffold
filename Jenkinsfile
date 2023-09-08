@@ -1,5 +1,8 @@
 pipeline {
     agent any
+     tools {
+        nodejs 'NodeJS 16.19.1' // Use the name you configured
+    }
     stages {
         stage('Build') {    
             steps{
