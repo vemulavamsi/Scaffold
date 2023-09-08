@@ -45,6 +45,18 @@ pipeline {
                 }
         }
     }
+     stage('Sonar') {
+            steps{
+                //Sonar envirment setup
+                script{
+                    withSonarQubeEnv(credentialsId: 'Sonar') {
+                        sh 'npm run sonar-scanner'
+                    }
+                    
+                }
+                
+            }
+        }
 
  }
 }
