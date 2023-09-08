@@ -30,11 +30,12 @@ pipeline {
                         //sh "docker rm -f learning111"
                         // sh "docker run -itd -p 3000:3000 --name learning111 ${buildProps.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/node-repo:${env.BUILD_NUMBER}"
                    // Removing existing image
-                    //sh "docker rmi -f automationecr"
+                    sh "docker rmi -f automationecr"
                     // Pulling latest version of docker image
                     sh "docker pull 933794111312.dkr.ecr.us-east-1.amazonaws.com/automationecr:latest"
                     
                     sh 'docker ps -f name=vamsi-Adi-practice -q | xargs --no-run-if-empty docker container stop'
+
                     sh 'docker container ls -a -fname=vamsi-Adi-practice -q | xargs -r docker container rm'
                     // creating container and port mapping
                     
