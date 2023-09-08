@@ -3,7 +3,7 @@ pipeline {
     environment {
         // Define Node.js installation to use
         NODEJS_HOME = sonar: 'practice', type: 'node'
-    }
+        }
     stages {
         stage('Build') {    
             steps{
@@ -48,19 +48,12 @@ pipeline {
                 }
         }
     }
-     stage('Sonar') {
-            steps{
-                //Sonar envirment setup
-                script{
-                    withSonarQubeEnv(credentialsId: 'Sonar') {
-                        //sh 'npm run sonar-scanner'
-                        sh "${NODEJS_HOME}/bin/sonar-scanner"
-                    }
-                    
-                }
-                
-            }
-        }
+    stage('SonarQube analysis') {
+       def scannerHome = tool 'practice';
+        withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
+          sh "${scannerHome}/bin/sonar-scanner"
+          }
+      }
 
  }
 }
