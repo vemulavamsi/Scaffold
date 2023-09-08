@@ -5,8 +5,8 @@ pipeline {
             steps{
                 echo "Building the code"
                 //sh "git clone https://github.com/vemulavamsi/Scaffold.git"
-                }
-            }
+             }
+         }
         stage('Push Docker image to ECR') {
             steps {
                 script{
@@ -20,8 +20,8 @@ pipeline {
                     sh "docker push 933794111312.dkr.ecr.us-east-1.amazonaws.com/automationecr:latest"
                     //sh "docker push public.ecr.aws/g8i9m6o6/learning111:latest"
                 }
-        }
-    }
+			}
+		}
         stage('Pull Docker image from ECR') {
             steps {
                 script{
@@ -42,32 +42,18 @@ pipeline {
                     //logs
                     sh "docker run -d -p 3000:3000 --name vamsi-Adi-practice --log-driver=awslogs --log-opt awslogs-region=us-east-1 --log-opt awslogs-group=practice 933794111312.dkr.ecr.us-east-1.amazonaws.com/automationecr:latest"
                 }
-        }
-    }
+			}
+		}
 		stage('SonarQube analysis') {
-			def scannerHome = tool 'practice';
-			withSonarQubeEnv(credentialsId: 'Sonar') { // If you have configured more than one global server connection, you can specify its name
-				sh "${scannerHome}/bin/sonar-scanner"
+            steps {
+                script {
+			        def scannerHome = tool 'practice';
+			        withSonarQubeEnv(credentialsId: 'Sonar') { // If you have configured more than one global server connection, you can specify its name
+				        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
 			}
 		}
 
 	}
 }
-
-/*
-//permission jason to create logs it need to attach in Iam role
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
-}
-*/
-
