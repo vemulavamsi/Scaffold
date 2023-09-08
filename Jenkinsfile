@@ -1,7 +1,7 @@
 pipeline {
     agent any
      tools {
-        nodejs 'NodeJS 16.19.1' // Use the name you configured
+        nodejs 'Practice-ns' // Use the name you configured
     }
     stages {
         stage('Build') {    
