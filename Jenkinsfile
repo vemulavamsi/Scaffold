@@ -54,7 +54,20 @@ pipeline {
         //         }
 		// 	}
 		// }
-
+    stage('Install Dependencies') {
+            steps {
+                // Install Node.js dependencies
+                sh 'npm install'
+            }
+        }
+ 
+        stage('Build and Test') {
+            steps {
+                // Run your build and test commands
+                sh 'npm run build'
+                sh 'npm test'
+            }
+        }
     //Nexus
     stage('nexus'){
         steps{
