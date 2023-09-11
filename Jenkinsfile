@@ -1,8 +1,6 @@
 pipeline {
     agent any
-     tools {
-        nodejs 'Practice-ns' // Use the name you configured
-    }
+     
     stages {
         stage('Build') {    
             steps{
