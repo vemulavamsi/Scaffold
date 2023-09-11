@@ -55,33 +55,6 @@ pipeline {
         //         }
 		// 	}
 		// }
-    stage('Install Dependencies') {
-            steps {
-                // Install Node.js dependencies
-                sh 'npm install'
-            }
-        }
- 
-        stage('Build and Test') {
-            steps {
-                // Run your build and test commands
-                sh 'npm run build'
-                sh 'npm test'
-            }
-        }
-    //Nexus
-    stage('nexus'){
-        steps{
-            script{
-                nexusArtifactUploader credentialsId: 'Nexus', 
-                groupId: 'express-scaffold', 
-                nexusUrl: '34.204.82.216:8081', 
-                nexusVersion: 'nexus3', 
-                protocol: 'http', 
-                repository: 'Practice', 
-                version: '1.0.0'
-            }
-        }
-    }
+   
 	}
 }
