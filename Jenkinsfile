@@ -27,7 +27,6 @@ pipeline {
             steps {
                 script{
                         // sh "docker pull ${buildProps.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/node-repo:${env.BUILD_NUMBER}"
-                    sh "docker rm -f learning111"
                     sh "docker run -itd -p 3000:3000 --name learning111 ${buildProps.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/node-repo:${env.BUILD_NUMBER}"
                    // Removing existing image
                     sh "docker rmi -f automationecr"
