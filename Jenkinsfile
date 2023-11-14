@@ -83,7 +83,7 @@ pipeline {
                     // sh "aws configure set region $AWS_REGION"
 
                     // Publish logs to CloudWatch
-                    sh "echo 'Hello, CloudWatch Logs!' | aws logs create-log-stream --log-group-name $LOG_GROUP_NAME --log-stream-name $LOG_STREAM_NAME"
+                    sh "echo 'Hello, CloudWatch Logs!' | aws logs create-log-stream --log-group-name $LOG_GROUP_NAME"
                 }
             }
         }
@@ -91,12 +91,12 @@ pipeline {
         // Add more stages as needed
     }
 
-    post {
-        always {
-            // Clean up AWS CLI configuration
-            sh "aws configure unset aws_access_key_id"
-            sh "aws configure unset aws_secret_access_key"
-            sh "aws configure unset region"
-        }
-    }
+    // post {
+    //     always {
+    //         // Clean up AWS CLI configuration
+    //         sh "aws configure unset aws_access_key_id"
+    //         sh "aws configure unset aws_secret_access_key"
+    //         sh "aws configure unset region"
+    //     }
+    // }
 }
