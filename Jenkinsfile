@@ -73,11 +73,6 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
-                // Your build steps here
-            }
-        }
 
         stage('Publish to CloudWatch Logs') {
             steps {
