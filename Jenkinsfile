@@ -8,7 +8,6 @@ pipeline {
         LOG_STREAM_NAME = '${BUILD_NAME}-${BUILD_NUMBER}'
     }
      stages {
-
         stage('Publish to CloudWatch Logs') {
             steps {
                 script {
@@ -25,13 +24,7 @@ pipeline {
 
         // Add more stages as needed
     }
-  //  stages {
-        stage('Build') {    
-            steps{
-                echo "Building the code"
-                //sh "git clone https://github.com/vemulavamsi/Scaffold.git"
-             }
-         }
+    
         stage('Push Docker image to ECR') {
             steps {
                 script{
