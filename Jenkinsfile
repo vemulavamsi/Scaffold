@@ -1,14 +1,21 @@
 pipeline {
     agent any
-     
+      environment {
+        // Define AWS credentials for authentication
+        AWS_ACCESS_KEY_ID     = credentials('AKIA5WBTPYA3PXZX336O')
+        AWS_SECRET_ACCESS_KEY = credentials('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')
+        AWS_REGION            = 'us-east-1'
+        LOG_GROUP_NAME        = 'practice'
+       // LOG_STREAM_NAME       = 'your-cloudwatch-log-stream-name'
+    }
     stages {
         stage('logs') {
             steps {
                 script {
-                    cloudWatchLog(
-                        logGroupName: 'practice',
-                        region: 'us-east-1'
-                    ) {
+                    // cloudWatchLog(
+                    //     logGroupName: 'practice',
+                    //     region: 'us-east-1'
+                    // ) {
                         stage('Build') {    
                             steps {
                                 echo "Building the code"
@@ -41,4 +48,4 @@ pipeline {
             }
         }
     }
-}
+
