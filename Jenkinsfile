@@ -78,9 +78,9 @@ pipeline {
             steps {
                 script {
                     // Configure AWS CLI with provided credentials
-                    sh "aws configure set aws_access_key_id $Aws_access_keys"
-                    sh "aws configure set aws_secret_access_key $Aws_secrect_keys"
-                    sh "aws configure set region $AWS_REGION"
+                    // sh "aws configure set aws_access_key_id $Aws_access_keys"
+                    // sh "aws configure set aws_secret_access_key $Aws_secrect_keys"
+                    // sh "aws configure set region $AWS_REGION"
 
                     // Publish logs to CloudWatch
                     sh "echo 'Hello, CloudWatch Logs!' | aws logs create-log-stream --log-group-name $LOG_GROUP_NAME --log-stream-name $LOG_STREAM_NAME"
