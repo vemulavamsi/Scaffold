@@ -69,7 +69,7 @@ pipeline {
         // Define environment variables
         AWS_REGION = 'us-east-1'
         LOG_GROUP_NAME = 'practice'
-        LOG_STREAM_NAME = 'Practice-app-1'
+        LOG_STREAM_NAME = '${BUILD_NAME}-${BUILD_NUMBER}'
     }
 
     stages {
