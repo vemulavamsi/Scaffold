@@ -2,8 +2,7 @@ pipeline {
     agent any
      
     stages {
-        stages {
-        stage('Example Stage') {
+        stage('logs') {
             steps {
                 script {
                     cloudWatchLog(
@@ -71,6 +70,5 @@ pipeline {
 }
             }
         }
-    }
     }
 }
