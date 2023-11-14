@@ -2,6 +2,15 @@ pipeline {
     agent any
      
     stages {
+        stages {
+        stage('Example Stage') {
+            steps {
+                script {
+                    cloudWatchLog(
+                        logGroupName: 'practice',
+                        //logStreamName: 'your-log-stream-name',
+                        region: 'us-east-1'
+                    ) {
         stage('Build') {    
             steps{
                 echo "Building the code"
@@ -45,6 +54,7 @@ pipeline {
                 }
 			}
 		}
+
         
 		// stage('SonarQube analysis') {
         //     steps {
@@ -58,4 +68,9 @@ pipeline {
 		// }
    
 	}
+}
+            }
+        }
+    }
+    }
 }
