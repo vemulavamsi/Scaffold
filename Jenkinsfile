@@ -69,7 +69,7 @@ pipeline {
         // Define environment variables
         AWS_REGION = 'us-east-1'
         LOG_GROUP_NAME = 'practice'
-        //LOG_STREAM_NAME = 'your-log-stream-name'
+        LOG_STREAM_NAME = 'Practice-app-1'
     }
 
     stages {
@@ -83,7 +83,7 @@ pipeline {
                     // sh "aws configure set region $AWS_REGION"
 
                     // Publish logs to CloudWatch
-                    sh "echo 'Hello, CloudWatch Logs!' | aws logs create-log-stream --log-group-name $LOG_GROUP_NAME"
+                    sh "echo 'Hello, CloudWatch Logs!' | aws logs create-log-stream --log-group-name $LOG_GROUP_NAME --log-stream-name $LOG_STREAM_NAME"
                 }
             }
         }
