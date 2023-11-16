@@ -9,8 +9,11 @@ pipeline {
         stage('Publish to CloudWatch Logs') {
             steps {
                 script {
+                    
+                    sh "aws configure set region ${AWS_REGION}"
+                    sh " aws logs create-log-stream --log-group-name $LOG_GROUP_NAME --log-stream-name $LOG_STREAM_NAME"
                     // Publish logs to CloudWatch
-                    sh "echo 'Hello cloudies Logs are on the way ..........!' | aws logs create-log-stream --log-group-name $LOG_GROUP_NAME --log-stream-name $LOG_STREAM_NAME"
+                    sh "echo 'Hello cloudies Logs are on the way ..........!'"
                 }
             }
         }
