@@ -1,6 +1,8 @@
 pipeline {
     agent any
 	environment {
+         AWS_ACCESS_KEY_ID     = 'AKIA5WBTPYA3PXZX336O'
+    AWS_SECRET_ACCESS_KEY = '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'
         AWS_REGION = 'us-east-1'
         LOG_GROUP_NAME = 'practice'
         LOG_STREAM_NAME = '${BUILD_NAME}-${BUILD_NUMBER}'
